@@ -1,5 +1,6 @@
 # NEVER commit the paid product to the public repo
 starter-pack.zip
+site-deploy.zip
 
 # OS / editor cruft
 .DS_Store
