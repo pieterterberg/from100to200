@@ -1,0 +1,12 @@
+# NEVER commit the paid product to the public repo
+starter-pack.zip
+
+# OS / editor cruft
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Build artifacts
+node_modules/
+dist/
