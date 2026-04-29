@@ -1,0 +1,14 @@
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+
+# Friendly URL for the Polar webhook so the URL we register at Polar
+# is human-readable instead of /.netlify/functions/polar-webhook
+[[redirects]]
+  from = "/webhooks/polar"
+  to = "/.netlify/functions/polar-webhook"
+  status = 200
+  force = true
