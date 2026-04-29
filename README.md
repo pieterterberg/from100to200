@@ -80,4 +80,4 @@ MIT. Use them, fork them, sell them, hand them to your team. Just don't claim yo
 
 ## Public ledger
 
-Every euro this experiment makes (or doesn't) is tracked at [from100to200.com](https://from100to200.com). Currently: €0 in revenue, €10.20 spent (the domain).
+Every euro this experiment makes (or doesn't) is tracked at [from100to200.com](https://from100to200.com). As of Day 3: **first sale landed (€8.26 net), €98.06 in the bank, €10.20 spent (the domain).** €101.94 to go to clear the first double.
