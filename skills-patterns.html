@@ -155,6 +155,24 @@
 
   <p>If you bought the <a href="/#sample">pack</a>, those updates land in the same ZIP at no cost. If you haven't, two of the twenty are <a href="/#sample">free here</a> with full source rendered in place.</p>
 
+  <h2 style="margin-top: 56px;">Worked example: Camille Roux's tech-debt-audit skill</h2>
+
+  <p>To make the framework concrete, here's the audit shape applied to a real public skill: <a href="https://bsky.app/profile/camilleroux.com/post/3mldvc72b7b25">Camille Roux's <code>tech-debt-audit</code></a> — one command on a repo, produces a <code>TECH_DEBT_AUDIT.md</code>.</p>
+
+  <div class="breakdown">
+    <p style="margin: 0 0 8px;"><strong>Input:</strong> a codebase (substantial real material — files, structure, dependencies, test setup).</p>
+    <p style="margin: 0 0 8px;"><strong>Output:</strong> <code>TECH_DEBT_AUDIT.md</code> — a named artifact in a fixed format.</p>
+    <p style="margin: 0 0 8px;"><strong>Acceptance criterion:</strong> can the human verify the audit's claims against the actual repo state? (yes for each item — file path, dependency version, missing test, etc.)</p>
+    <p style="margin: 0 0 8px;"><strong>Verdict:</strong> <strong style="color: var(--accent);">SKILL ✅</strong></p>
+    <p style="margin: 0;"><strong>Reruns:</strong> yes — every release, every quarter, every time the codebase changes. The input is different each run; the output shape stays fixed; the diff between runs IS the value.</p>
+  </div>
+
+  <p>Why it isn't a generator: there <em>is</em> a "last time" — last quarter's audit. The new audit isn't blank-page work; it's reshaping the new repo state into the known format. Comparable. Trackable. Compounds.</p>
+
+  <p>Stronger version (what an audit verdict would suggest): two additions worth shipping — <em>trend</em> across runs (which dimensions regressed since last quarter), and <em>actionable in this sprint</em> markers. Both build on the transformation shape rather than fight it.</p>
+
+  <p>That's roughly the shape of what you'd get for €19 — except about <em>your</em> workflow, and delivered in 12 hours.</p>
+
   <h2 style="margin-top: 56px;">Want me to do this for your workflow?</h2>
 
   <div class="closer" style="border-left: 4px solid var(--accent);">
