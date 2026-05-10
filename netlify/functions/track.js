@@ -1,13 +1,12 @@
 // netlify/functions/track.js
 //
-// Tiny visit tracker. Returns a 1x1 transparent PNG for use as an <img> pixel,
-// and writes the visit metadata to a Netlify Blob store ("visits") with a
-// timestamped key. Read back via /.netlify/functions/track-stats.
+// Tiny visit tracker. Returns a 1x1 transparent PNG for use as an <img> pixel.
+// Logs the visit metadata to console (Netlify Function logs, retained ~24h
+// on free plan). Pieter can fetch via `netlify functions:log track` from
+// the Netlify CLI, or paste from the dashboard.
 //
 // Query params:
 //   p — page identifier (e.g. "skills-patterns"). Optional; defaults to "?".
-
-const { getStore } = require('@netlify/blobs');
 
 // 1x1 transparent PNG (43 bytes)
 const PIXEL = Buffer.from(
@@ -28,26 +27,17 @@ exports.handler = async (event) => {
     ip: headers['x-nf-client-connection-ip'] || headers['x-forwarded-for'] || '?',
     country: headers['x-country'] || headers['cf-ipcountry'] || '?',
   };
-
-  // Filter obvious bots: prefetchers, link checkers, our own monitoring
   const ua = visit.ua.toLowerCase();
-  const isBot =
+  visit.bot =
     ua.includes('bot') ||
     ua.includes('crawler') ||
     ua.includes('spider') ||
     ua.includes('slurp') ||
     ua.includes('preview') ||
     ua.includes('headlesschrome');
-  visit.bot = isBot;
 
-  try {
-    const store = getStore('visits');
-    // Random suffix to avoid collisions on same-millisecond visits
-    const key = `${visit.ts}-${Math.random().toString(36).slice(2, 8)}`;
-    await store.setJSON(key, visit);
-  } catch (e) {
-    console.error('[track] blob write failed:', e.message);
-  }
+  // Single-line JSON for easy log parsing
+  console.log(`[track] ${JSON.stringify(visit)}`);
 
   return {
     statusCode: 200,

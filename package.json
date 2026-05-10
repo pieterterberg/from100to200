@@ -1,9 +1,0 @@
-{
-  "name": "from100to200-site",
-  "version": "1.0.0",
-  "private": true,
-  "description": "Static site + Netlify functions for from100to200.com",
-  "dependencies": {
-    "@netlify/blobs": "^8.0.0"
-  }
-}
